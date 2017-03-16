@@ -1,3 +1,10 @@
 body {
-  padding-top: 61px;  /* Move body of page below navbar. */
+}
+
+.ui.borderless.ui.menu {
+  background-color: 	#425158;
+}
+
+#login-sign-in-link {
+  color: rgba(255, 255, 255, 0.9);
 }
