@@ -1,38 +1,31 @@
 <template name="Home_Page">
-  <div style="margin-top:20px" class="ui container">
-    <table class="ui celled table">
-      <thead>
-      <tr>
-        <th>First</th>
-        <th>Last</th>
-        <th>Address</th>
-        <th>Telephone</th>
-        <th>Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Panda</td>
-        <td>Express</td>
-        <td>2560 McCarthy Mall, Honolulu, HI, 96822</td>
-        <td>(808)956-7229</td>
-        <td>email@pandaexpress.com</td>
-      </tr>
-      <tr>
-        <td>L</td>
-        <td>L</td>
-        <td>2500 Campus Road, Honolulu, HI, 96822</td>
-        <td>(808)956-8111</td>
-        <td>email@landl.com</td>
-      </tr>
-      <tr>
-        <td>Stir</td>
-        <td>Fresh</td>
-        <td>2465 Campus Road, Honolulu, HI, 96822</td>
-        <td>(808)956-3663</td>
-        <td>email@stirfresh.org</td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="ui container">
+    {{#if Template.subscriptionsReady}}
+      <table style="margin-top: 20px" class="ui celled table">
+        <thead>
+        <tr>
+          <th>First</th>
+          <th>Last</th>
+          <th>Address</th>
+          <th>Telephone</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each contact in contactsList}}
+          <tr>
+            <td>{{contact.first}}</td>
+            <td>{{contact.last}}</td>
+            <td>{{contact.address}}</td>
+            <td>{{contact.telephone}}</td>
+            <td>{{contact.email}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      {{> Loading}}
+    {{/if}}
   </div>
 </template>
